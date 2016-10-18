@@ -17,8 +17,13 @@ def debit(amount)
   @transactions.push(time: Time.now.strftime("%m/%d/%Y"), debit: amount, balance: balance)
 end
 
-def statement
-  @transactions
+def print_statement
+  puts "date      || credit || debit || balance"
+ @transactions.sort_by { |record| record[:time]}.each do |record|
+   puts "#{record[:time]} || #{record[:credit]} || #{record[:debit]} || #{record[:balance]}"
+ end
+
 end
+
 
 end

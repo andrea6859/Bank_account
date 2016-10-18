@@ -9,16 +9,16 @@ end
 
 def credit(amount)
   @balance += amount
-  @transactions.push(time: Time.now, credit: amount, balance: balance)
+  @transactions.push(time: Time.now.strftime("%m/%d/%Y"), credit: amount, balance: balance)
 end
 
 def debit(amount)
   @balance -= amount
-  @transactions.push(time: Time.now, debit: amount, balance: balance)
+  @transactions.push(time: Time.now.strftime("%m/%d/%Y"), debit: amount, balance: balance)
 end
 
 def statement
-  @transactions 
+  @transactions
 end
 
 end

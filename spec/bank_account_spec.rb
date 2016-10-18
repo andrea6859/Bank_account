@@ -3,9 +3,12 @@ require 'bank_account'
 describe Bank_account do
 
   subject(:bank_account) {described_class.new}
-  let(:transactions) { {:date => Time.now, credit: 1000} }
-  let(:statement) { {credit: 1000, debit: 500} }
+  let(:transactions) { {:time => Time.now, credit: 1000, balance: 1000} }
+  let(:statement) { {:time => Time.now, credit: 1000, debit: 500, balance: 500} }
 
+  before do
+    allow(Time).to receive(:now) {2016-10-18 12:38:08.266302000 +0100}
+  end
   it 'has a initial balance of zero' do
     expect(subject.balance).to eq(0)
   end

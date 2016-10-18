@@ -19,7 +19,7 @@ end
 
 def print_statement
   puts "date      || credit || debit || balance"
- @transactions.sort_by { |record| record[:time]}.each do |record|
+ @transactions.reverse.sort_by { |record| record[:time]}.each do |record|
    puts "#{record[:time]} || #{record[:credit]} || #{record[:debit]} || #{record[:balance]}"
  end
 
